@@ -1,0 +1,34 @@
+name: smoke
+on:
+  schedule: [{ cron: "0 15 * * *" }]  # 1日1回
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt
+      - name: Run probe
+        env:
+          REINFOLIB_API_KEY: ${{ secrets.REINFOLIB_API_KEY }}
+        run: |
+          python -m src.score_pipeline_stable 35.681236 139.767125 2024 > probe.json || echo "{}" > probe.json
+          cat probe.json
+      - name: Open issue on failure
+        if: contains(fromJson(steps.probe_out.outputs.json || '{"ok":false}').warnings, 'land') || failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('probe.json','utf8');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: "Smoke test failed",
+              body: "Automated report:\n\n```json\n"+body+"\n```"
+            });
