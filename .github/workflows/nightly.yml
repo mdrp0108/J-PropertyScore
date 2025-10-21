@@ -1,0 +1,23 @@
+name: nightly
+on:
+  schedule:
+    - cron: "0 15 * * *"   # 毎日 UTC 15:00（日本の夜を想定）
+  workflow_dispatch:
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt
+      - env:
+          REINFOLIB_API_KEY: ${{ secrets.REINFOLIB_API_KEY }}
+        run: |
+          python -m scripts.score_pipeline 35.681236 139.767125 2024 > sample_tokyo.json
+      - name: Commit artifacts
+        run: |
+          git config user.name "bot"; git config user.email "bot@example.com"
+          git add sample_tokyo.json || true
+          git commit -m "nightly sample" || true
+          git push || true
