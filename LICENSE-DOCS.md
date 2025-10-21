@@ -8,7 +8,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ## ライセンス（ドキュメント）
 - ライセンス種別: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
-- 著作権表示例: `© <Year> <Your Name or Organization>.`
+- 著作権表示例: `© <2025> <Masaaki Nakatani>.`
 - ライセンスURL（人間向けサマリー）: https://creativecommons.org/licenses/by/4.0/
 - ライセンスURL（法的全文）: https://creativecommons.org/licenses/by/4.0/legalcode
 
