@@ -1,0 +1,29 @@
+J‑PropertyScore API — NOTICE
+Copyright (c) 2025 <Your Name or Organization>
+
+This project is licensed under the Apache License, Version 2.0.
+See the LICENSE file distributed with this work for additional information.
+
+=== Data Attribution ===
+This product uses data accessible via the MLIT “Reinfolib” APIs
+(Ministry of Land, Infrastructure, Transport and Tourism, Japan).
+Some content is subject to the Public Data License v1.0 (PDL1.0)
+and/or the respective terms indicated by the data provider.
+
+When you redistribute any derivative content that includes MLIT materials,
+please include a clear attribution such as:
+
+  "出典：国土交通省 不動産情報ライブラリ（該当ページURL）
+   （編集・加工して利用）"
+
+=== No Endorsement / No Warranty ===
+- MLIT and any other data providers do NOT endorse J‑PropertyScore API.
+- The authors and contributors provide this software and any associated
+  outputs “AS IS”, without warranties or conditions of any kind,
+  express or implied. See the Apache License 2.0 for details.
+
+=== Trademarks ===
+All product names, logos, and brands are property of their respective owners.
+
+=== Third‑Party Components ===
+If you add third‑party code or data with their own notices, list them here.
