@@ -1,0 +1,33 @@
+{
+  "name": "j-propertyscore",
+  "version": "1.0.0",
+  "description": "J‑PropertyScore API: land price + station + zoning unified score on Cloudflare Workers",
+  "license": "Apache-2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "dev:remote": "wrangler dev --remote",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev --remote",
+    "lint": "echo \"(add eslint if needed)\"",
+    "format": "echo \"(add prettier if needed)\"",
+    "test": "node -e \"console.log('OK')\""
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "mlit",
+    "land-price",
+    "zoning",
+    "station",
+    "japan",
+    "api"
+  ]
+}
