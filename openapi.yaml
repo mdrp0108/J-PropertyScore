@@ -1,0 +1,17 @@
+openapi: 3.0.3
+info:
+  title: J-PropertyScore API
+  version: "1.0.0"
+servers:
+  - url: https://<your-worker-subdomain>.workers.dev
+paths:
+  /score:
+    get:
+      summary: 緯度経度から地価/駅/用途/資産性スコアを返す
+      parameters:
+        - in: query; name: lat; required: true; schema: { type: number }
+        - in: query; name: lng; required: true; schema: { type: number }
+        - in: query; name: year; schema: { type: integer, default: 2024 }
+      responses:
+        "200":
+          description: OK
