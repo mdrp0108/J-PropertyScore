@@ -1,0 +1,26 @@
+# Cloudflare Workers 設定
+# 参考: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "j-propertyscore"
+main = "worker/worker.mjs"
+compatibility_date = "2025-10-01"
+
+# 必要なら有効化（例：ローカルバンドラでの最適化）
+# minify = true
+
+[vars]
+# CORS 許可オリジン。複数指定する場合はカンマ区切り（例: "https://a.example,https://b.example"）
+# 本番では "*" ではなく自社ドメインに絞ることを推奨
+CORS_ALLOW_ORIGINS = "*"
+
+# Cron やバインディングを使う場合の雛形（必要なときにコメント解除）
+# [triggers]
+# crons = ["0 15 * * *"]  # 毎日 15:00 UTC
+
+# KV / R2 / Durable Objects 等を使う場合の雛形
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# [placement]
+# mode = "smart"
